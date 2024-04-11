@@ -1,19 +1,18 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { Box, Button, FormControl, FormLabel, Input, VStack, Heading, Text, useToast } from "@chakra-ui/react";
 
-const Index = () => {
+const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const toast = useToast();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform login logic here
-    console.log("Login submitted:", email, password);
+   
+    console.log("Signup submitted:", email, password);
     toast({
-      title: "Login Successful",
-      description: "You have successfully logged in.",
+      title: "Signup Successful",
+      description: "Your account has been created.",
       status: "success",
       duration: 3000,
       isClosable: true,
@@ -23,7 +22,7 @@ const Index = () => {
   return (
     <Box maxWidth="400px" margin="auto" mt={8}>
       <Heading as="h1" size="xl" textAlign="center" mb={8}>
-        Login
+        Sign Up
       </Heading>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4}>
@@ -36,15 +35,15 @@ const Index = () => {
             <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password" />
           </FormControl>
           <Button type="submit" colorScheme="blue" size="lg" width="full">
-            Login
+            Sign Up
           </Button>
         </VStack>
       </form>
       <Text mt={4} textAlign="center">
-        Don't have an account? <Link to="/signup">Sign up</Link>
+        Already have an account? <a href="/">Login</a>
       </Text>
     </Box>
   );
 };
 
-export default Index;
+export default Signup;
